@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: market-intelligence-api
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: node dist/index.js
+    healthCheckPath: /v1/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MARKET_SIGNAL_API_URL
+        value: https://market-signal-api-iu2o.onrender.com
+      - key: TRUST_API_URL
+        value: https://trust-api-22r8.onrender.com
